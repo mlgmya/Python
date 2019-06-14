@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+     <!-- 引入jQuery -->
+    <script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+     <!-- 引入 Bootstrap -->
+     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+     <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+      <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+     <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.js' %}"></script>         
+     <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    <title>python爬虫项目</title>        
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+        <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid"> 
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#example-navbar-collapse">
+                        <span class="sr-only">切换导航</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">爬虫项目</a>
+                </div>
+                <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{% url 'blog:index' %}">首页</a></li>
+                        <li><a href="{% url 'blog:movie' %}">豆瓣电影TOP250</a></li>
+                        <li><a href="{% url 'blog:weather' %}">天气预报</a></li>
+                        <li><a href="{% url 'blog:phones' %}">手机</a></li>
+                        <li><a href="{% url 'blog:bags' %}">书包</a></li>
+                        <li><a href="{% url 'blog:info' %}">关于</a></li>
+                    </ul>
+                </div>
+                </div>
+            </nav>
+            <center>
+            <div style="width:40%;">
+            <table class="table">
+                    <thead>
+                    <tr>
+                        <th style="width:10%;">序号</th>
+                        <th style="width:10%;">价格</th>
+                        <th style="width:20%;">商品名称</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for list in list4 %}
+                    <tr>
+                        <td>{{list.id|linebreaksbr }}</td>
+                        <td>{{list.price|linebreaksbr }}</td>
+                        <td>{{list.name|linebreaksbr }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+            </table>
+</body>
+</html>
